@@ -20,6 +20,14 @@ public class ProjetoEscola {
         // TODO code application logic here
         ArrayList<Integer> my_list = new ArrayList<>();
         System.out.println("Meu primeiro Envio!");
+        for(int i=0; i!=10; i++) {
+            my_list.add(i);
+        }
+        
+        System.out.println("Valores inseridos.");
+        for(int k=0; k!=10; k++) {
+            System.out.println(my_list.get(k));
+        }
     }
     
 }
