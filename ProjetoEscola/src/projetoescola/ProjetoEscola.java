@@ -5,6 +5,8 @@
  */
 package projetoescola;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Viksóm
@@ -16,7 +18,8 @@ public class ProjetoEscola {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("Meu primeiro Envio");
+        ArrayList<Integer> my_list = new ArrayList<>();
+        System.out.println("Meu primeiro Envio!");
     }
     
 }
