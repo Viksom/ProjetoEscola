@@ -5,10 +5,16 @@
  */
 package projetoescola;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Viksóm
  */
 public interface IMetodo {
-    
+    void Cadastrar_aluno(String nome, String n_proc, ArrayList<String> disc, int number_phone, String ender);
+    Aluno Consultar_aluno(String nome);
+    Aluno Ver_lista_aluno();
+    void Atualizar_aluno(Aluno dados);
+    void Remover_aluno(Aluno dados);
 }
