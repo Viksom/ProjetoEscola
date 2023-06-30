@@ -17,17 +17,28 @@ public class ProjetoEscola {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        ArrayList<Integer> my_list = new ArrayList<>();
-        System.out.println("Meu primeiro Envio!");
-        for(int i=0; i!=10; i++) {
-            my_list.add(i);
-        }
+        Implementacao acesso = new Implementacao();
         
-        System.out.println("Valores inseridos.");
-        for(int k=0; k!=10; k++) {
-            System.out.println(my_list.get(k));
+        ArrayList<Aluno> Lista_alunos;
+        ArrayList<String> disc = new ArrayList<>();
+        ArrayList<Integer> notas = new ArrayList<>();
+        
+        disc.add("SD");
+        notas.add(0);
+        disc.add("AMI");
+        notas.add(0);
+        
+        acesso.Cadastrar_aluno("Alberto", disc, notas, 921, "Luanda-Sul");
+        acesso.Cadastrar_aluno("Jorge", disc, notas, 921, "Calemba 2");
+        
+        Lista_alunos = acesso.Ver_lista_aluno();
+        
+        acesso.Remover_aluno(Lista_alunos.get(1));
+        Lista_alunos.get(0).Nome = "Paulo";
+        acesso.Atualizar_aluno(Lista_alunos.get(0));
+        
+        for (Aluno alunos : Lista_alunos) {
+            System.out.println(alunos.Nome);
         }
     }
-    
 }
