@@ -12,9 +12,9 @@ import java.util.ArrayList;
  * @author Viksóm
  */
 public interface IMetodo {
-    void Cadastrar_aluno(String nome, String n_proc, ArrayList<String> disc, int number_phone, String ender);
+    void Cadastrar_aluno(String nome, ArrayList<String> disc, ArrayList<Integer> nota, int number_phone, String ender);
     Aluno Consultar_aluno(String nome);
-    Aluno Ver_lista_aluno();
+    ArrayList<Aluno> Ver_lista_aluno();
     void Atualizar_aluno(Aluno dados);
     void Remover_aluno(Aluno dados);
 }
