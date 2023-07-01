@@ -17,12 +17,14 @@ public class Aluno {
     public Disciplina disciplina;
     public Contacto contacto;
     public Endereco endereco;
+    public boolean Propina;
     
-    public Aluno(String nome, String n_proc, ArrayList<String> disc, ArrayList<Integer> nota, int cont, String ender) {
+    public Aluno(String nome, String n_proc, ArrayList<String> disc, ArrayList<Integer> nota, int cont, String ender, boolean propina) {
         this.Nome = nome;
         this.N_processo = n_proc;
         this.disciplina = new Disciplina(disc, nota);
         this.contacto = new Contacto(cont);
         this.endereco = new Endereco(ender);
+        this.Propina = propina;
     }
 }

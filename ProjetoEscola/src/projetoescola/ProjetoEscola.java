@@ -28,8 +28,8 @@ public class ProjetoEscola {
         disc.add("AMI");
         notas.add(0);
         
-        acesso.Cadastrar_aluno("Alberto", disc, notas, 921, "Luanda-Sul");
-        acesso.Cadastrar_aluno("Jorge", disc, notas, 921, "Calemba 2");
+        acesso.Cadastrar_aluno("Alberto", disc, notas, 921, "Luanda-Sul", true);
+        acesso.Cadastrar_aluno("Jorge", disc, notas, 921, "Calemba 2", false);
         
         Lista_alunos = acesso.Ver_lista_aluno();
         

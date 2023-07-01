@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projetoescola;
 
 import java.util.ArrayList;
@@ -17,17 +12,15 @@ public class Implementacao implements IMetodo
     private int Process_Number = 202300;
 
     @Override
-    public void Cadastrar_aluno(String nome, ArrayList<String> disc, ArrayList<Integer> nota, int number_phone, String ender) {
+    public void Cadastrar_aluno(String nome, ArrayList<String> disc, ArrayList<Integer> nota, int number_phone, String ender, boolean propina) {
         String n_proc = "" + this.Process_Number;
-        this.alunos.add(new Aluno(nome, n_proc, disc, nota, number_phone, ender));
+        this.alunos.add(new Aluno(nome, n_proc, disc, nota, number_phone, ender, propina));
         this.Process_Number ++;
     }
 
     @Override
     public Aluno Consultar_aluno(String nome) {
-        for (Aluno aluno : this.alunos) {
-            return aluno;
-        }
+        for (Aluno aluno : this.alunos) { return aluno; }
         return null;
     }
 
