@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public interface IMetodo {
     void Cadastrar_aluno(String nome, ArrayList<String> disc, ArrayList<Integer> nota, String number_phone, String ender, boolean propina);
-    Aluno Consultar_aluno(String nome);
+    ArrayList<Aluno> Consultar_aluno(String nome);
     ArrayList<Aluno> Ver_lista_aluno();
     void Atualizar_aluno(Aluno dados);
     void Remover_aluno(Aluno dados);

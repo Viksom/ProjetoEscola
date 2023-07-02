@@ -6,6 +6,7 @@
 package projetoescola;
 
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,11 +17,36 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form JanelaPrincipal
      */
+    
+    private static DefaultTableModel modelo;
+    
     public JanelaPrincipal() {
         initComponents();
         btnDelete.setEnabled(false);
         btnUpdate.setEnabled(false);
         this.setLocationRelativeTo(null);
+        String[] colunas = {"NAME", "NUMERO PROCESSO", "NUMERO DE TELEFONE", "ENDEREÇO"};
+        modelo = new DefaultTableModel(colunas, 0);
+        
+        ArrayList<Aluno> Lista_alunos;
+        ArrayList<String> disc = new ArrayList<>();
+        ArrayList<Integer> notas = new ArrayList<>();
+        
+        disc.add("SD");
+        notas.add(0);
+        disc.add("AMI");
+        notas.add(0);
+        disc.add("ALGA");
+        notas.add(0);
+        disc.add("PR2");
+        notas.add(0);
+        
+        acesso.Cadastrar_aluno("Alberto", disc, notas, "9234", "Luanda-Sul", true);
+        acesso.Cadastrar_aluno("Jorge", disc, notas, "9423", "Calemba 2", false);
+        myTable.setModel(modelo);
+        //myTable.add
+        
+        Preencher_tabela(acesso.Ver_lista_aluno());
     }
 
     /**
@@ -34,7 +60,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        myTable = new javax.swing.JTable();
         getSearch = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
@@ -46,20 +72,41 @@ public class JanelaPrincipal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 204));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        myTable.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        myTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
                 "NOME", "NUMERO DE PROCESSO", "NUMERO DE TELEFONE", "ENDEREÇO"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        myTable.setRowHeight(22);
+        myTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                myTableMousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(myTable);
+
+        getSearch.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         getSearch.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, null, new java.awt.Color(102, 102, 102)));
         getSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getSearchActionPerformed(evt);
+            }
+        });
+        getSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                getSearchKeyReleased(evt);
             }
         });
 
@@ -75,6 +122,11 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         btnUpdate.setBackground(new java.awt.Color(0, 0, 204));
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Atualizar");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnAdd.setBackground(new java.awt.Color(0, 102, 0));
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
@@ -120,7 +172,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(133, Short.MAX_VALUE)
+                .addContainerGap(128, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(getSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -153,19 +205,54 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_getSearchActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        //JTable
-        
+        int selected = myTable.getSelectedRow();
+        String nome = (String) myTable.getValueAt(selected, 0);
+        String n_process = (String) myTable.getValueAt(selected, 1);
+        ArrayList<Aluno> alunos = acesso.Consultar_aluno(nome);
+        for (Aluno aluno : alunos) {
+            if(aluno.N_processo.equals(n_process)) {
+                acesso.Remover_aluno(aluno);
+                break;
+            }
+        }
+        Preencher_tabela(acesso.Ver_lista_aluno());
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        AdicionarAtualizar AddUpt = new AdicionarAtualizar("Adicionar");
+        AdicionarAtualizar AddUpt = new AdicionarAtualizar("Adicionar", null);
         AddUpt.setVisible(true);
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String searching = getSearch.getText();
-        Aluno my_list = acesso.Consultar_aluno(searching);
+        ArrayList<Aluno> my_list = acesso.Consultar_aluno(searching);
+        Preencher_tabela(my_list);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void getSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_getSearchKeyReleased
+        if(getSearch.getText().equals("")) {
+            Preencher_tabela(acesso.Ver_lista_aluno());
+        }
+    }//GEN-LAST:event_getSearchKeyReleased
+
+    private void myTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myTableMousePressed
+        btnUpdate.setEnabled(true);
+        btnDelete.setEnabled(true);
+    }//GEN-LAST:event_myTableMousePressed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        int selected = myTable.getSelectedRow();
+        String nome = (String) myTable.getValueAt(selected, 0);
+        String n_process = (String) myTable.getValueAt(selected, 1);
+        ArrayList<Aluno> alunos = acesso.Consultar_aluno(nome);
+        for (Aluno aluno : alunos) {
+            if(aluno.N_processo.equals(n_process)) {
+                AdicionarAtualizar AddUpt = new AdicionarAtualizar("Editar", aluno);
+                AddUpt.setVisible(true);
+                break;
+            }
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,16 +289,38 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         });
     }
     
+    public static void Preencher_tabela(ArrayList<Aluno> lista) {
+        btnUpdate.setEnabled(false);
+        btnDelete.setEnabled(false);
+        Limpar_tabela();
+        try {
+            for(Aluno aluno : lista) {
+                String[] items = {aluno.Nome, aluno.N_processo, aluno.contacto.Numero, aluno.endereco.Residencia};
+                modelo.addRow(items); 
+            }
+        }
+        catch(NullPointerException e) {
+        }
+    }
+    
+    private static void Limpar_tabela() {
+        int n = modelo.getRowCount();
+        System.out.println(n);
+        for(int i=n-1; i>=0; i--) {
+            modelo.removeRow(i);
+        }
+    }
+    
     public static Implementacao acesso = new Implementacao();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnUpdate;
+    private static javax.swing.JButton btnDelete;
+    private static javax.swing.JButton btnUpdate;
     private javax.swing.JTextField getSearch;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable myTable;
     // End of variables declaration//GEN-END:variables
 }

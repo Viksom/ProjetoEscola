@@ -19,9 +19,15 @@ public class Implementacao implements IMetodo
     }
 
     @Override
-    public Aluno Consultar_aluno(String nome) {
-        for (Aluno aluno : this.alunos) { return aluno; }
-        return null;
+    public ArrayList<Aluno> Consultar_aluno(String nome) {
+        ArrayList<Aluno> lista;
+        lista = new ArrayList<>();
+        for (Aluno aluno : this.alunos) {
+            if (aluno.Nome.equals(nome)) {
+                lista.add(aluno);
+            }
+        }
+        return lista;
     }
 
     @Override

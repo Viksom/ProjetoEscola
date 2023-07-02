@@ -5,6 +5,8 @@
  */
 package projetoescola;
 
+import java.util.regex.PatternSyntaxException;
+
 /**
  *
  * @author Viksóm
@@ -13,6 +15,7 @@ public class Contacto {
     public String Numero;
     
     public Contacto(String numero) {
+        //if("+244")
         this.Numero = "+244" + numero;
     }
 }

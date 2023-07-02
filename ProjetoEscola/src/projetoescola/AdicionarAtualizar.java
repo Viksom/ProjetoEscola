@@ -15,15 +15,32 @@ public class AdicionarAtualizar extends javax.swing.JFrame {
 
     /**
      * Creates new form AdicionarAtualizar
+     * @param text
+     * @param aluno
      */
-    public AdicionarAtualizar(String text) {
+    public AdicionarAtualizar(String text, Aluno aluno) {
         AdicionarAtualizar.textButton = text;
+        AdicionarAtualizar.alunoData = aluno;
         initComponents();
         if ("Adicionar".equals(text)) {
             getNota_1.setVisible(false);
             getNota_2.setVisible(false);
             getNota_3.setVisible(false);
             getNota_4.setVisible(false);
+        }
+        else {
+            System.out.println(aluno.Nome);
+            getNome.setText(aluno.Nome);
+            getAdress.setText(aluno.endereco.Residencia);
+            getPhNumber.setText(aluno.contacto.Numero);
+            getSubj_1.setText(aluno.disciplina.nome_disc.get(0));
+            getSubj_2.setText(aluno.disciplina.nome_disc.get(1));
+            getSubj_3.setText(aluno.disciplina.nome_disc.get(2));
+            getSubj_4.setText(aluno.disciplina.nome_disc.get(3));
+            getNota_1.setText(aluno.disciplina.Nota.get(0).toString());
+            getNota_2.setText(aluno.disciplina.Nota.get(1).toString());
+            getNota_3.setText(aluno.disciplina.Nota.get(2).toString());
+            getNota_4.setText(aluno.disciplina.Nota.get(3).toString());
         }
         btnSave.setText(text);
     }
@@ -207,8 +224,10 @@ public class AdicionarAtualizar extends javax.swing.JFrame {
             notas.add(Integer.parseInt(getNota_2.getText()));
             notas.add(Integer.parseInt(getNota_3.getText()));
             notas.add(Integer.parseInt(getNota_4.getText()));
-            JanelaPrincipal.acesso.Atualizar_aluno(new Aluno(getNome.getText(), null, disc, notas, getPhNumber.getText(), getAdress.getText(), Tela1_Tipo_Escola.estado));
+            JanelaPrincipal.acesso.Atualizar_aluno(new Aluno(getNome.getText(), alunoData.N_processo, disc, notas, getPhNumber.getText(), getAdress.getText(), Tela1_Tipo_Escola.estado));
         }
+        JanelaPrincipal.Preencher_tabela(JanelaPrincipal.acesso.alunos);
+        this.dispose();
     }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
@@ -241,12 +260,13 @@ public class AdicionarAtualizar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdicionarAtualizar(textButton).setVisible(true);
+                new AdicionarAtualizar(textButton, alunoData).setVisible(true);
             }
         });
     }
     
     public static String textButton;
+    public static Aluno alunoData;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
