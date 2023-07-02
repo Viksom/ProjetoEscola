@@ -27,6 +27,8 @@ public class AdicionarAtualizar extends javax.swing.JFrame {
             getNota_2.setVisible(false);
             getNota_3.setVisible(false);
             getNota_4.setVisible(false);
+            
+            this.btnPagar.setVisible(false);
         }
         else {
             System.out.println(aluno.Nome);
@@ -41,6 +43,10 @@ public class AdicionarAtualizar extends javax.swing.JFrame {
             getNota_2.setText(aluno.disciplina.Nota.get(1).toString());
             getNota_3.setText(aluno.disciplina.Nota.get(2).toString());
             getNota_4.setText(aluno.disciplina.Nota.get(3).toString());
+            
+            if (aluno.Propina) {
+                this.btnPagar.setVisible(false);
+            }
         }
         btnSave.setText(text);
     }
@@ -69,6 +75,7 @@ public class AdicionarAtualizar extends javax.swing.JFrame {
         getNota_4 = new javax.swing.JTextField();
         getNota_3 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        btnPagar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -118,38 +125,48 @@ public class AdicionarAtualizar extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("ADICIONAR ALUNO");
 
+        btnPagar.setBackground(new java.awt.Color(0, 0, 255));
+        btnPagar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnPagar.setForeground(new java.awt.Color(255, 255, 255));
+        btnPagar.setText("Pagar");
+        btnPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPagarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
+                        .addComponent(btnPagar, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(getNome)
-                            .addComponent(getPhNumber)
-                            .addComponent(getAdress)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(getSubj_4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                                    .addComponent(getSubj_3, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(getSubj_2, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(getSubj_1, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(getNota_1)
-                                    .addComponent(getNota_2)
-                                    .addComponent(getNota_4, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                                    .addComponent(getNota_3)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(49, 49, 49)))))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(getNome)
+                        .addComponent(getPhNumber)
+                        .addComponent(getAdress)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(getSubj_4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                .addComponent(getSubj_3, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(getSubj_2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(getSubj_1, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(getNota_1)
+                                .addComponent(getNota_2)
+                                .addComponent(getNota_4, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                                .addComponent(getNota_3)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(49, 49, 49))))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -181,10 +198,13 @@ public class AdicionarAtualizar extends javax.swing.JFrame {
                 .addComponent(getAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(66, Short.MAX_VALUE))
+                    .addComponent(btnPagar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(66, 66, 66))
         );
+
+        btnPagar.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -201,6 +221,8 @@ public class AdicionarAtualizar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JanelaPrincipal.Preencher_tabela(JanelaPrincipal.acesso.alunos);
+        JanelaPrincipal.getSearch.setText("");
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -224,11 +246,16 @@ public class AdicionarAtualizar extends javax.swing.JFrame {
             notas.add(Integer.parseInt(getNota_2.getText()));
             notas.add(Integer.parseInt(getNota_3.getText()));
             notas.add(Integer.parseInt(getNota_4.getText()));
-            JanelaPrincipal.acesso.Atualizar_aluno(new Aluno(getNome.getText(), alunoData.N_processo, disc, notas, getPhNumber.getText(), getAdress.getText(), Tela1_Tipo_Escola.estado));
+            JanelaPrincipal.acesso.Atualizar_aluno(new Aluno(getNome.getText(), alunoData.N_processo, disc, notas, getPhNumber.getText(), getAdress.getText(), alunoData.Propina));
         }
         JanelaPrincipal.Preencher_tabela(JanelaPrincipal.acesso.alunos);
         this.dispose();
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
+        alunoData.Propina = true;
+        btnPagar.setEnabled(false);
+    }//GEN-LAST:event_btnPagarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -269,6 +296,7 @@ public class AdicionarAtualizar extends javax.swing.JFrame {
     public static Aluno alunoData;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnPagar;
     private javax.swing.JButton btnSave;
     private javax.swing.JTextField getAdress;
     private javax.swing.JTextField getNome;

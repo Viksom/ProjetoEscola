@@ -25,7 +25,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         btnDelete.setEnabled(false);
         btnUpdate.setEnabled(false);
         this.setLocationRelativeTo(null);
-        String[] colunas = {"NAME", "NUMERO PROCESSO", "NUMERO DE TELEFONE", "ENDEREÇO"};
+        String[] colunas = {"NAME", "NUMERO PROCESSO", "NUMERO DE TELEFONE", "ENDEREÇO", "ESTADO"};
         modelo = new DefaultTableModel(colunas, 0);
         
         ArrayList<Aluno> Lista_alunos;
@@ -41,8 +41,8 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         disc.add("PR2");
         notas.add(0);
         
-        acesso.Cadastrar_aluno("Alberto", disc, notas, "9234", "Luanda-Sul", true);
-        acesso.Cadastrar_aluno("Jorge", disc, notas, "9423", "Calemba 2", false);
+        acesso.Cadastrar_aluno("Alberto", disc, notas, "9234", "Luanda-Sul", Tela1_Tipo_Escola.estado);
+        acesso.Cadastrar_aluno("Jorge", disc, notas, "9423", "Calemba 2", Tela1_Tipo_Escola.estado);
         myTable.setModel(modelo);
         //myTable.add
         
@@ -293,19 +293,22 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         btnUpdate.setEnabled(false);
         btnDelete.setEnabled(false);
         Limpar_tabela();
-        try {
-            for(Aluno aluno : lista) {
-                String[] items = {aluno.Nome, aluno.N_processo, aluno.contacto.Numero, aluno.endereco.Residencia};
-                modelo.addRow(items); 
+        for(Aluno aluno : lista) {
+            if (aluno.Propina) {
+                String[] estado = {"Apto", "Nao Apto"};
+                int i = aluno.disciplina.Media();
+                String[] items = {aluno.Nome, aluno.N_processo, aluno.contacto.Numero, aluno.endereco.Residencia, estado[i]};
+                modelo.addRow(items);
+            } 
+            else {
+                String[] items = {aluno.Nome, aluno.N_processo, aluno.contacto.Numero, aluno.endereco.Residencia, "Pendente"};
+                modelo.addRow(items);
             }
-        }
-        catch(NullPointerException e) {
         }
     }
     
     private static void Limpar_tabela() {
         int n = modelo.getRowCount();
-        System.out.println(n);
         for(int i=n-1; i>=0; i--) {
             modelo.removeRow(i);
         }
@@ -317,7 +320,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd;
     private static javax.swing.JButton btnDelete;
     private static javax.swing.JButton btnUpdate;
-    private javax.swing.JTextField getSearch;
+    public static javax.swing.JTextField getSearch;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

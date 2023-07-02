@@ -15,7 +15,9 @@ public class Contacto {
     public String Numero;
     
     public Contacto(String numero) {
-        //if("+244")
-        this.Numero = "+244" + numero;
+        this.Numero = numero;
+        if(!numero.contains("+244")) {
+            this.Numero = "+244" + numero;
+        }
     }
 }

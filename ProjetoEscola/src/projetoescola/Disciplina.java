@@ -21,16 +21,14 @@ public class Disciplina {
         this.Nota = nota;
     }
     
-    public void Media() {
+    public int Media() {
         double media = 0.00;
         for(int nota : this.Nota) {
             media += nota;
         }
         if((media/this.Nota.size()) >= 10) {
-            this.Estado = 1;
+            return 0;
         }
-        else {
-            this.Estado = 0;
-        }
+        return 1;
     }
 }
