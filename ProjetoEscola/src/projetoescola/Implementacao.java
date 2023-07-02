@@ -12,7 +12,7 @@ public class Implementacao implements IMetodo
     private int Process_Number = 202300;
 
     @Override
-    public void Cadastrar_aluno(String nome, ArrayList<String> disc, ArrayList<Integer> nota, int number_phone, String ender, boolean propina) {
+    public void Cadastrar_aluno(String nome, ArrayList<String> disc, ArrayList<Integer> nota, String number_phone, String ender, boolean propina) {
         String n_proc = "" + this.Process_Number;
         this.alunos.add(new Aluno(nome, n_proc, disc, nota, number_phone, ender, propina));
         this.Process_Number ++;

@@ -54,22 +54,22 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="55" pref="55" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField6" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField7" alignment="0" max="32767" attributes="0"/>
+                              <Component id="getNome" alignment="0" max="32767" attributes="0"/>
+                              <Component id="getPhNumber" alignment="0" max="32767" attributes="0"/>
+                              <Component id="getAdress" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jTextField5" alignment="0" pref="170" max="32767" attributes="0"/>
-                                      <Component id="jTextField3" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField4" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="getSubj_4" alignment="0" pref="170" max="32767" attributes="0"/>
+                                      <Component id="getSubj_3" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="getSubj_2" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="getSubj_1" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextField8" max="32767" attributes="0"/>
-                                      <Component id="jTextField9" max="32767" attributes="0"/>
-                                      <Component id="jTextField10" alignment="0" pref="91" max="32767" attributes="0"/>
-                                      <Component id="jTextField11" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="getNota_1" max="32767" attributes="0"/>
+                                      <Component id="getNota_2" max="32767" attributes="0"/>
+                                      <Component id="getNota_4" alignment="0" pref="91" max="32767" attributes="0"/>
+                                      <Component id="getNota_3" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
@@ -89,31 +89,31 @@
                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="54" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jTextField1" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="getNome" min="-2" pref="32" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="jTextField8" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="getSubj_1" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="getNota_1" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField4" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="jTextField9" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="getSubj_2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="getNota_2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField3" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="jTextField11" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="getSubj_3" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="getNota_3" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField5" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="jTextField10" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="getSubj_4" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="getNota_4" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jTextField6" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="getPhNumber" min="-2" pref="32" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jTextField7" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="getAdress" min="-2" pref="32" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jButton1" min="-2" pref="31" max="-2" attributes="0"/>
@@ -125,45 +125,39 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="getNome">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextField3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
+            <Property name="text" type="java.lang.String" value="Nome"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField4">
+        <Component class="javax.swing.JTextField" name="getSubj_1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
+            <Property name="text" type="java.lang.String" value="Disciplina 1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField5">
+        <Component class="javax.swing.JTextField" name="getSubj_3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
+            <Property name="text" type="java.lang.String" value="Disciplina 3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField6">
+        <Component class="javax.swing.JTextField" name="getSubj_2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
+            <Property name="text" type="java.lang.String" value="Disciplina 2"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField7">
+        <Component class="javax.swing.JTextField" name="getSubj_4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
+            <Property name="text" type="java.lang.String" value="Disciplina 4"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="getPhNumber">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Phone Number"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="getAdress">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Endereco"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
@@ -179,6 +173,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnSave">
           <Properties>
@@ -192,25 +189,28 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField8">
+        <Component class="javax.swing.JTextField" name="getNota_1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField8"/>
+            <Property name="text" type="java.lang.String" value="Nota 1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField9">
+        <Component class="javax.swing.JTextField" name="getNota_2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField9"/>
+            <Property name="text" type="java.lang.String" value="Nota 2"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField10">
+        <Component class="javax.swing.JTextField" name="getNota_4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField10"/>
+            <Property name="text" type="java.lang.String" value="Nota 4"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField11">
+        <Component class="javax.swing.JTextField" name="getNota_3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField11"/>
+            <Property name="text" type="java.lang.String" value="Nota 3"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">

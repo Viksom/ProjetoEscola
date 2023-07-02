@@ -19,7 +19,7 @@ public class Aluno {
     public Endereco endereco;
     public boolean Propina;
     
-    public Aluno(String nome, String n_proc, ArrayList<String> disc, ArrayList<Integer> nota, int cont, String ender, boolean propina) {
+    public Aluno(String nome, String n_proc, ArrayList<String> disc, ArrayList<Integer> nota, String cont, String ender, boolean propina) {
         this.Nome = nome;
         this.N_processo = n_proc;
         this.disciplina = new Disciplina(disc, nota);

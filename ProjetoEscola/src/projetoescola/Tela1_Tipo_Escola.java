@@ -139,7 +139,7 @@ public class Tela1_Tipo_Escola extends javax.swing.JFrame {
             }
         });
     }
-    public boolean estado;
+    public static boolean estado;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

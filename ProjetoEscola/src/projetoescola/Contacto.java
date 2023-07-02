@@ -12,7 +12,7 @@ package projetoescola;
 public class Contacto {
     public String Numero;
     
-    public Contacto(int numero) {
+    public Contacto(String numero) {
         this.Numero = "+244" + numero;
     }
 }

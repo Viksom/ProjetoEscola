@@ -5,6 +5,8 @@
  */
 package projetoescola;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Viksóm
@@ -14,8 +16,16 @@ public class AdicionarAtualizar extends javax.swing.JFrame {
     /**
      * Creates new form AdicionarAtualizar
      */
-    public AdicionarAtualizar() {
+    public AdicionarAtualizar(String text) {
+        AdicionarAtualizar.textButton = text;
         initComponents();
+        if ("Adicionar".equals(text)) {
+            getNota_1.setVisible(false);
+            getNota_2.setVisible(false);
+            getNota_3.setVisible(false);
+            getNota_4.setVisible(false);
+        }
+        btnSave.setText(text);
     }
 
     /**
@@ -28,65 +38,65 @@ public class AdicionarAtualizar extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        getNome = new javax.swing.JTextField();
+        getSubj_1 = new javax.swing.JTextField();
+        getSubj_3 = new javax.swing.JTextField();
+        getSubj_2 = new javax.swing.JTextField();
+        getSubj_4 = new javax.swing.JTextField();
+        getPhNumber = new javax.swing.JTextField();
+        getAdress = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        getNota_1 = new javax.swing.JTextField();
+        getNota_2 = new javax.swing.JTextField();
+        getNota_4 = new javax.swing.JTextField();
+        getNota_3 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 204));
 
-        jTextField1.setText("jTextField1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
+        getNome.setText("Nome");
 
-        jTextField2.setText("jTextField1");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
+        getSubj_1.setText("Disciplina 1");
 
-        jTextField3.setText("jTextField1");
+        getSubj_3.setText("Disciplina 3");
 
-        jTextField4.setText("jTextField1");
+        getSubj_2.setText("Disciplina 2");
 
-        jTextField5.setText("jTextField1");
+        getSubj_4.setText("Disciplina 4");
 
-        jTextField6.setText("jTextField1");
+        getPhNumber.setText("Phone Number");
 
-        jTextField7.setText("jTextField1");
+        getAdress.setText("Endereco");
 
         jButton1.setBackground(new java.awt.Color(204, 51, 0));
         jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         btnSave.setBackground(new java.awt.Color(0, 153, 51));
         btnSave.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
-        jTextField8.setText("jTextField8");
+        getNota_1.setText("Nota 1");
 
-        jTextField9.setText("jTextField9");
+        getNota_2.setText("Nota 2");
 
-        jTextField10.setText("jTextField10");
+        getNota_4.setText("Nota 4");
 
-        jTextField11.setText("jTextField11");
+        getNota_3.setText("Nota 3");
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("ADICIONAR ALUNO");
@@ -105,21 +115,21 @@ public class AdicionarAtualizar extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(55, 55, 55)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField6)
-                            .addComponent(jTextField7)
+                            .addComponent(getNome)
+                            .addComponent(getPhNumber)
+                            .addComponent(getAdress)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(getSubj_4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                    .addComponent(getSubj_3, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(getSubj_2, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(getSubj_1, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField8)
-                                    .addComponent(jTextField9)
-                                    .addComponent(jTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                                    .addComponent(jTextField11)))
+                                    .addComponent(getNota_1)
+                                    .addComponent(getNota_2)
+                                    .addComponent(getNota_4, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                                    .addComponent(getNota_3)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(49, 49, 49)))))
@@ -131,27 +141,27 @@ public class AdicionarAtualizar extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(getNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(getSubj_1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(getNota_1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(getSubj_2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(getNota_2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(getSubj_3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(getNota_3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(getSubj_4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(getNota_4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(getPhNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(getAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,13 +183,33 @@ public class AdicionarAtualizar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        ArrayList<String> disc = new ArrayList<>();
+        ArrayList<Integer> notas = new ArrayList<>();
+        
+        disc.add(getSubj_1.getText());
+        disc.add(getSubj_2.getText());
+        disc.add(getSubj_3.getText());
+        disc.add(getSubj_4.getText());
+        
+        if (AdicionarAtualizar.textButton.equals("Adicionar")) {
+            for(int i=0; i<4; i++) {
+                notas.add(0);
+            }
+            JanelaPrincipal.acesso.Cadastrar_aluno(getNome.getText(), disc, notas, getPhNumber.getText(), getAdress.getText(), Tela1_Tipo_Escola.estado);
+        }
+        else {
+            notas.add(Integer.parseInt(getNota_1.getText()));
+            notas.add(Integer.parseInt(getNota_2.getText()));
+            notas.add(Integer.parseInt(getNota_3.getText()));
+            notas.add(Integer.parseInt(getNota_4.getText()));
+            JanelaPrincipal.acesso.Atualizar_aluno(new Aluno(getNome.getText(), null, disc, notas, getPhNumber.getText(), getAdress.getText(), Tela1_Tipo_Escola.estado));
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,26 +241,28 @@ public class AdicionarAtualizar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdicionarAtualizar().setVisible(true);
+                new AdicionarAtualizar(textButton).setVisible(true);
             }
         });
     }
+    
+    public static String textButton;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
+    private javax.swing.JTextField getAdress;
+    private javax.swing.JTextField getNome;
+    private javax.swing.JTextField getNota_1;
+    private javax.swing.JTextField getNota_2;
+    private javax.swing.JTextField getNota_3;
+    private javax.swing.JTextField getNota_4;
+    private javax.swing.JTextField getPhNumber;
+    private javax.swing.JTextField getSubj_1;
+    private javax.swing.JTextField getSubj_2;
+    private javax.swing.JTextField getSubj_3;
+    private javax.swing.JTextField getSubj_4;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }
